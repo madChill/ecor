@@ -41,6 +41,7 @@ var options = {
     popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.jsx'),
     background: path.join(__dirname, 'src', 'pages', 'Background', 'index.js'),
     contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
+    inPages: path.join(__dirname, 'src', 'pages', 'InPages', 'index.jsx'),
     devtools: path.join(__dirname, 'src', 'pages', 'Devtools', 'index.js'),
     panel: path.join(__dirname, 'src', 'pages', 'Panel', 'index.jsx'),
   },
@@ -133,6 +134,9 @@ var options = {
             );
           },
         },
+        {
+          from: 'src/assets'
+        }
       ],
     }),
     new CopyWebpackPlugin({

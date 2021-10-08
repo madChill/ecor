@@ -36,18 +36,66 @@ if (fileSystem.existsSync(secretsPath)) {
 var options = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
-    newtab: path.join(__dirname, 'src', 'pages', 'Newtab', 'index.jsx'),
-    options: path.join(__dirname, 'src', 'pages', 'Options', 'index.jsx'),
-    popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.jsx'),
-    background: path.join(__dirname, 'src', 'pages', 'Background', 'index.js'),
-    contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
-    inPages: path.join(__dirname, 'src', 'pages', 'InPages', 'index.jsx'),
-    devtools: path.join(__dirname, 'src', 'pages', 'Devtools', 'index.js'),
-    panel: path.join(__dirname, 'src', 'pages', 'Panel', 'index.jsx'),
+    newtab: path.join(
+      __dirname,
+      'src',
+      'extentions',
+      'pages',
+      'Newtab',
+      'index.jsx'
+    ),
+    options: path.join(
+      __dirname,
+      'src',
+      'extentions',
+      'pages',
+      'Options',
+      'index.jsx'
+    ),
+    popup: path.join(
+      __dirname,
+      'src',
+      'extentions',
+      'pages',
+      'Popup',
+      'index.jsx'
+    ),
+    background: path.join(
+      __dirname,
+      'src',
+      'extentions',
+      'pages',
+      'Background',
+      'index.js'
+    ),
+    contentScript: path.join(
+      __dirname,
+      'src',
+      'extentions',
+      'pages',
+      'Content',
+      'index.js'
+    ),
+    devtools: path.join(
+      __dirname,
+      'src',
+      'extentions',
+      'pages',
+      'Devtools',
+      'index.js'
+    ),
+    panel: path.join(
+      __dirname,
+      'src',
+      'extentions',
+      'pages',
+      'Panel',
+      'index.jsx'
+    ),
   },
-  chromeExtensionBoilerplate: {
-    notHotReload: ['contentScript', 'devtools'],
-  },
+  //chromeExtensionBoilerplate: {
+  // notHotReload: ['contentScript', 'devtools'],
+  //},
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
@@ -111,16 +159,16 @@ var options = {
   plugins: [
     new webpack.ProgressPlugin(),
     // clean the build folder
-    new CleanWebpackPlugin({
-      verbose: true,
-      cleanStaleWebpackAssets: true,
-    }),
+    // new CleanWebpackPlugin({
+    //   verbose: true,
+    //   cleanStaleWebpackAssets: true,
+    // }),
     // expose and write the allowed env vars on the compiled bundle
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/manifest.json',
+          from: 'src/extentions/manifest.json',
           to: path.join(__dirname, 'build'),
           force: true,
           transform: function (content, path) {
@@ -135,14 +183,14 @@ var options = {
           },
         },
         {
-          from: 'src/assets'
-        }
+          from: 'src/assets',
+        },
       ],
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/pages/Content/content.styles.css',
+          from: 'src/extentions/pages/Content/content.styles.css',
           to: path.join(__dirname, 'build'),
           force: true,
         },
@@ -167,31 +215,66 @@ var options = {
       ],
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'pages', 'Newtab', 'index.html'),
+      template: path.join(
+        __dirname,
+        'src',
+        'extentions',
+        'pages',
+        'Newtab',
+        'index.html'
+      ),
       filename: 'newtab.html',
       chunks: ['newtab'],
       cache: false,
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'pages', 'Options', 'index.html'),
+      template: path.join(
+        __dirname,
+        'src',
+        'extentions',
+        'pages',
+        'Options',
+        'index.html'
+      ),
       filename: 'options.html',
       chunks: ['options'],
       cache: false,
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'pages', 'Popup', 'index.html'),
+      template: path.join(
+        __dirname,
+        'src',
+        'extentions',
+        'pages',
+        'Popup',
+        'index.html'
+      ),
       filename: 'popup.html',
       chunks: ['popup'],
       cache: false,
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'pages', 'Devtools', 'index.html'),
+      template: path.join(
+        __dirname,
+        'src',
+        'extentions',
+        'pages',
+        'Devtools',
+        'index.html'
+      ),
       filename: 'devtools.html',
       chunks: ['devtools'],
       cache: false,
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'pages', 'Panel', 'index.html'),
+      template: path.join(
+        __dirname,
+        'src',
+        'extentions',
+        'pages',
+        'Panel',
+        'index.html'
+      ),
       filename: 'panel.html',
       chunks: ['panel'],
       cache: false,

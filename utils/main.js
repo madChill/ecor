@@ -4,11 +4,13 @@ process.env.NODE_ENV = 'production';
 process.env.ASSET_PATH = '/';
 
 var webpack = require('webpack'),
-  config = require('../webpack.extentions.config');
+  config = require('../webpack.main.config');
 
 delete config.chromeExtensionBoilerplate;
+
 config.mode = 'production';
 
 webpack(config, function (err) {
+  console.log(config);
   if (err) throw err;
 });

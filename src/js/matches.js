@@ -20,18 +20,25 @@ const loadScript = (url, callback) => {
   document.getElementsByTagName("head")[0].appendChild(script);
 };
 
-const loadStyle = (url) => {
-  document.createElement("style");
+export const loadHtml = (content) => {
+  console.log("==========loadHtml=============");
+  // script.text
+  const script = document.createElement("div");
+
+  script.innerHTML = content;
+  document.getElementsByTagName("body")[0].appendChild(script);
+  // callback();
 };
 
 if (document.readyState === "complete") {
   // console.log('document.readyState === \'completdsadsae\'',document.readyState === 'complete');
 }
+loadHtml(`<div id="root-react"></div>`);
 // console.log('document.readyState === \'complete\'',document.readyState === 'complete');
 loadScript(`https://unpkg.com/axios/dist/axios.min.js`, () => {
   loadScript(`https://madchill.github.io/ecor/main/main.bundle.js`, () => {
     //add js by cheat.
-    main = () => {
+    const main = () => {
       // ...
       console.log(
         "C:\\Users\\Admin\\WebstormProjects\\extentions\\chrome-extension-webpack-boilerplate21212"

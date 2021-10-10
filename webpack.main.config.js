@@ -10,7 +10,7 @@ var webpack = require("webpack"),
 const ASSET_PATH = process.env.ASSET_PATH || "/";
 
 var alias = {
-  "react-dom": "@hot-loader/react-dom",
+  // "react-dom": "@hot-loader/react-dom",
 };
 
 // load the secrets
@@ -84,9 +84,9 @@ var options = {
       {
         test: /\.(js|jsx)$/,
         use: [
-          {
-            loader: "source-map-loader",
-          },
+          // {
+          //   loader: "source-map-loader",
+          // },
           {
             loader: "babel-loader",
           },
@@ -117,16 +117,16 @@ var options = {
     new CopyWebpackPlugin([
       {
         from: "main/assets",
-        transform: function (content, path) {
-          // generates the manifest file using the package.json informations
-          return Buffer.from(
-            JSON.stringify({
-              description: process.env.npm_package_description,
-              version: process.env.npm_package_version,
-              ...JSON.parse(content.toString()),
-            })
-          );
-        },
+        // transform: function (content, path) {
+        //   // generates the manifest file using the package.json informations
+        //   return Buffer.from(
+        //     JSON.stringify({
+        //       description: process.env.npm_package_description,
+        //       version: process.env.npm_package_version,
+        //       ...JSON.parse(content.toString()),
+        //     })
+        //   );
+        // },
       },
     ]),
   ],

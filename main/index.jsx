@@ -4,7 +4,6 @@ import { render } from 'react-dom';
 //import logo from '../assets/img/logo.svg';
 // import './Popup.css';
 
-console.log("this is test")
 const Popup = () => {
   return (
     <div className="App">

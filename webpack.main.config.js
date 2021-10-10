@@ -42,7 +42,7 @@ var options = {
   //   notHotReload: ['contentScript', 'devtools'],
   // },
   output: {
-    path: path.resolve(__dirname, "main"),
+    path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
     publicPath: ASSET_PATH,
   },

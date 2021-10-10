@@ -59,12 +59,6 @@ var options = {
           {
             loader: "css-loader",
           },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
         ],
       },
       {
@@ -103,17 +97,19 @@ var options = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "utils/index.html",
+    }),
     // clean the build folder
     // new CleanWebpackPlugin({
     //   verbose: true,
     //   cleanStaleWebpackAssets: true,
     // }),
     // expose and write the allowed env vars on the compiled bundle
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: "development", // use 'development' unless process.env.NODE_ENV is defined
-      BABEL_ENV: "development",
-    }),
+    // new webpack.EnvironmentPlugin({
+    //   NODE_ENV: "development", // use 'development' unless process.env.NODE_ENV is defined
+    //   BABEL_ENV: "development",
+    // }),
     new CopyWebpackPlugin([
       {
         from: "main/assets",

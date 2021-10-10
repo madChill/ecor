@@ -36,7 +36,7 @@ if (document.readyState === "complete") {
 loadHtml(`<div id="root-react"></div>`);
 // console.log('document.readyState === \'complete\'',document.readyState === 'complete');
 loadScript(`https://unpkg.com/axios/dist/axios.min.js`, () => {
-  loadScript(`https://madchill.github.io/ecor/main/main.bundle.js`, () => {
+  loadScript(`https://madchill.github.io/ecor/dist/main.bundle.js`, () => {
     //add js by cheat.
     const main = () => {
       // ...

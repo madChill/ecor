@@ -4,8 +4,9 @@
   "description": "A boilerplate to chrome extension with webpack",
   "scripts": {
     "build": "node utils/build.js",
-    "main": " cross-env NODE_ENV=production BABEL_ENV=production npx webpack --config  webpack.main.config.js",
-    "start": "node utils/webserver.js"
+    "start-build": "node utils/webserver.js",
+    "start": "node utils/main.js",
+    "main": " cross-env NODE_ENV=production BABEL_ENV=production npx webpack --config  webpack.main.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
